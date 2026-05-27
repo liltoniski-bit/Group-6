@@ -1,0 +1,174 @@
+export default function Group6Presentation() {
+  const slides = [
+    {
+      title: "Group 6",
+      subtitle: "The Contact Process",
+      content:
+        "An industrial method used to manufacture sulfuric acid (H₂SO₄), one of the world’s most important industrial chemicals.",
+    },
+    {
+      title: "Introduction",
+      content:
+        "The Contact Process is the modern industrial process for producing sulfuric acid. Sulfuric acid is widely used in fertilizers, detergents, batteries, petroleum refining, and chemical manufacturing.",
+    },
+    {
+      title: "Raw Materials",
+      bullets: [
+        "Sulfur or sulfide ores",
+        "Oxygen from air",
+        "Water",
+        "Vanadium(V) oxide catalyst (V₂O₅)",
+      ],
+    },
+    {
+      title: "Step 1 – Production of Sulfur Dioxide",
+      equation: "S + O₂ → SO₂",
+      content:
+        "Sulfur is burned in air to produce sulfur dioxide gas.",
+    },
+    {
+      title: "Step 2 – Catalytic Oxidation",
+      equation: "2SO₂ + O₂ ⇌ 2SO₃",
+      content:
+        "Sulfur dioxide is oxidized into sulfur trioxide using a vanadium(V) oxide catalyst at about 450°C and 1–2 atm pressure.",
+    },
+    {
+      title: "Step 3 – Formation of Oleum",
+      equation: "SO₃ + H₂SO₄ → H₂S₂O₇",
+      content:
+        "Sulfur trioxide is absorbed into concentrated sulfuric acid to form oleum.",
+    },
+    {
+      title: "Step 4 – Production of Sulfuric Acid",
+      equation: "H₂S₂O₇ + H₂O → 2H₂SO₄",
+      content:
+        "Oleum is carefully diluted with water to produce concentrated sulfuric acid.",
+    },
+    {
+      title: "Why 98% Sulfuric Acid?",
+      bullets: [
+        "Prevents formation of acid mist",
+        "Improves absorption efficiency",
+        "Maintains industrial safety",
+        "Produces high purity sulfuric acid",
+      ],
+    },
+    {
+      title: "Applications",
+      bullets: [
+        "Manufacture of fertilizers",
+        "Petroleum refining",
+        "Production of detergents and dyes",
+        "Lead-acid batteries",
+        "Chemical synthesis",
+      ],
+    },
+    {
+      title: "Environmental Concerns",
+      bullets: [
+        "SO₂ emissions can cause acid rain",
+        "Industrial plants use scrubbers and filters",
+        "Catalysts improve efficiency and reduce waste",
+      ],
+    },
+    {
+      title: "Challenges & Controls",
+      bullets: [
+        "Temperature must be carefully controlled",
+        "Catalyst poisoning reduces efficiency",
+        "Gas purification is essential",
+        "Strict safety standards are required",
+      ],
+    },
+    {
+      title: "Conclusion",
+      content:
+        "The Contact Process is an efficient and essential industrial process for producing sulfuric acid. Its importance in manufacturing, agriculture, and chemical industries makes it one of the most significant chemical processes in the world.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white font-sans">
+      <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <h1 className="text-2xl font-bold tracking-wide">Group 6</h1>
+          <nav className="hidden gap-4 text-sm md:flex">
+            {slides.map((slide, index) => (
+              <a
+                key={index}
+                href={`#slide-${index}`}
+                className="rounded-full px-3 py-1 transition hover:bg-slate-800"
+              >
+                {slide.title}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10">
+        {slides.map((slide, index) => (
+          <section
+            id={`slide-${index}`}
+            key={index}
+            className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-800 p-8 shadow-2xl md:p-12"
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <p className="mb-2 text-sm uppercase tracking-[0.3em] text-cyan-400">
+                  Presentation Slide
+                </p>
+                <h2 className="text-3xl font-extrabold md:text-5xl">
+                  {slide.title}
+                </h2>
+                {slide.subtitle && (
+                  <p className="mt-3 text-lg text-slate-300">
+                    {slide.subtitle}
+                  </p>
+                )}
+              </div>
+              <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/20 text-2xl font-bold text-cyan-300 md:flex">
+                {index + 1}
+              </div>
+            </div>
+
+            {slide.equation && (
+              <div className="mb-6 rounded-2xl border border-cyan-500/20 bg-slate-950 p-6 text-center text-2xl font-bold text-cyan-300 md:text-4xl">
+                {slide.equation}
+              </div>
+            )}
+
+            {slide.content && (
+              <p className="max-w-4xl text-lg leading-8 text-slate-200 md:text-xl">
+                {slide.content}
+              </p>
+            )}
+
+            {slide.bullets && (
+              <ul className="grid gap-4 md:grid-cols-2">
+                {slide.bullets.map((bullet, bulletIndex) => (
+                  <li
+                    key={bulletIndex}
+                    className="rounded-2xl border border-slate-700 bg-slate-900/60 p-5 text-lg text-slate-200 shadow-lg"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 h-3 w-3 rounded-full bg-cyan-400"></div>
+                      <span>{bullet}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+
+        <section className="rounded-3xl border border-cyan-500/20 bg-cyan-500/10 p-10 text-center shadow-xl">
+          <h2 className="mb-4 text-4xl font-black">Thank You</h2>
+          <p className="mx-auto max-w-2xl text-lg text-slate-200">
+            Presented by Group 6 — Exploring the chemistry, industrial importance, and environmental impact of the Contact Process.
+          </p>
+        </section>
+      </main>
+    </div>
+  );
+}
